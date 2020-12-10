@@ -1,2 +1,2 @@
 # Face-Mask-web-app
-[![](https://brandmark.io/logo-crunch/cache/40b2ff5a0672196bc4122a948ed00830_64_37a6259cc0c1dae299a7866489dff0bd.png)](https://github.com/souravcoder99)]
+[![Streamlit APP](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/souravcoder99/face-mask-web-app/main/webapp.py)
