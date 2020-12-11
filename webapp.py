@@ -3,14 +3,14 @@ from streamlit.caching import cache
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-import cv2
+import cv2, os, urllib
 import numpy as np
 from PIL import Image
 
 def main():
     gitam = Image.open("logo.png")
     st.sidebar.success("Navigation bar")
-    status = st.sidebar.selectbox("GO TO",["Home","Detect Masked Face","UML Diagrams","Source Code"])
+    status = st.sidebar.selectbox("GO TO",["Home","Detect Masked Face","Source Code"])
     st.sidebar.image(gitam,use_column_width=True)
     st.sidebar.markdown("# <font color='navy'>Created By:</font>",unsafe_allow_html=True)
     st.sidebar.markdown("### Sourav Mohanty",unsafe_allow_html=True)
@@ -22,16 +22,23 @@ def main():
         st.markdown("---", unsafe_allow_html=True)
         picture = Image.open("SYL.png")
         st.image(picture,use_column_width=True)
+        st.write("Here we introduce a mask face detection model that is based on computer vision and deep learning. The proposed model can be integrated with surveillance cameras to impede the COVID-19 transmission by allowing the detection of people who are wearing masks not wearing face masks. ")
     	
 
     elif status == 'Detect Masked Face':
         run_app()
     
-    elif status == 'UML Diagrams':
-        st.warning("hello")
-
     elif status == 'Source Code':
+        st.info("SOURCE CODE OF THIS WEB APP")
+        github = st.checkbox('show Github Repository Link')
+        if github:
+            st.success("https://github.com/souravcoder99/Face-Mask-web-app")
         st.code(get_file_content_as_string("webapp.py"))
+
+def get_file_content_as_string(path):
+    url = 'https://raw.githubusercontent.com/souravcoder99/Face-Mask-web-app/main/' + path
+    response = urllib.request.urlopen(url)
+    return response.read().decode("utf-8")
 
 def run_app():
 
