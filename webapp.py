@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit.caching import cache
+# from streamlit.caching import cache
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
@@ -15,7 +15,7 @@ def main():
     st.sidebar.markdown("# <font color='navy'>Created By:</font>",unsafe_allow_html=True)
     st.sidebar.markdown("### Sourav Mohanty",unsafe_allow_html=True)
     st.sidebar.info("Any contribution is appreciated")
-    st.sidebar.markdown("[![](https://brandmark.io/logo-crunch/cache/40b2ff5a0672196bc4122a948ed00830_64_37a6259cc0c1dae299a7866489dff0bd.png)](https://github.com/souravcoder99) [![](https://brandmark.io/logo-crunch/cache/3e0c1e2b98ab847c77b9f84f4642b2c9_48_37a6259cc0c1dae299a7866489dff0bd.png)]()")
+    st.sidebar.markdown("[![](https://brandmark.io/logo-crunch/cache/40b2ff5a0672196bc4122a948ed00830_64_37a6259cc0c1dae299a7866489dff0bd.png)](https://github.com/sourav9599) [![](https://brandmark.io/logo-crunch/cache/3e0c1e2b98ab847c77b9f84f4642b2c9_48_37a6259cc0c1dae299a7866489dff0bd.png)]()")
     
     if status == 'Home':
         st.title("Face Mask Detection Using Transfer Learning And OpenCV")
@@ -32,11 +32,11 @@ def main():
         st.info("SOURCE CODE OF THIS WEB APP")
         github = st.checkbox('show Github Repository Link')
         if github:
-            st.success("https://github.com/souravcoder99/Face-Mask-web-app")
+            st.success("https://github.com/sourav9599/Face-Mask-web-app")
         st.code(get_file_content_as_string("webapp.py"))
 
 def get_file_content_as_string(path):
-    url = 'https://raw.githubusercontent.com/souravcoder99/Face-Mask-web-app/main/' + path
+    url = 'https://raw.githubusercontent.com/sourav9599/Face-Mask-web-app/main/' + path
     response = urllib.request.urlopen(url)
     return response.read().decode("utf-8")
 
@@ -90,9 +90,6 @@ def run_app():
         st.success("Detection Accuracy : "+s+"%")
         st.info("{} people are wearing mask".format(c))
         st.error("{} people are not wearing mask".format(t-c))
-
-
-
 
 if __name__ == "__main__":
     main()
